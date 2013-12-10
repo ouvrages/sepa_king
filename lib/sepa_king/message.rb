@@ -53,7 +53,7 @@ module SEPA
 
       case schema_name
         when PAIN_001_002_03, PAIN_008_002_02
-          account.bic.present? && transactions.all? { |t| t.schema_compatible?(schema_name) }
+          transactions.all? { |t| t.schema_compatible?(schema_name) }
         when PAIN_001_003_03, PAIN_008_003_02
           transactions.all? { |t| t.schema_compatible?(schema_name) }
       end
